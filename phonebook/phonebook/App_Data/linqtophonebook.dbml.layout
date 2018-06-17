@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="lingtophonebook">
+  <DataContextMoniker Name="/lingtophonebookDataContext" />
+  <nestedChildShapes>
+    <classShape Id="75b119bd-173f-4363-a586-e1d93f545eb3" absoluteBounds="2, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/lingtophonebookDataContext/tblphone" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6685b16-23db-4760-b0fa-2c7233f8ce3b" absoluteBounds="2.015, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
