@@ -11,13 +11,18 @@ namespace phonebook
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            divid.Visible = false;
         }
 
-        protected void btnlogin_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-           
+          
+        }
 
+        protected void btnsignup_Click(object sender, EventArgs e)
+        {
+            signid.Visible = false;
+            divid.Visible = true;
         }
 
         protected void btnsaveuser_Click(object sender, EventArgs e)
