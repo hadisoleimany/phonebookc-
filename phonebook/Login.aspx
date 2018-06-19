@@ -111,7 +111,7 @@
 
             <asp:Button ID="btnlogin" runat="server" OnClick="Button1_Click" Text="ورود" />
 
-            <asp:Button CssClass="cancelbtn" ID="btnsignup" runat="server" OnClick="btnsignup_Click" Text="عضویت" />
+            <asp:Button CssClass="cancelbtn" ID="btnsignup" runat="server" OnClientClick="javascript:alert('test');" Text="عضویت" />
 
         </div>
 
