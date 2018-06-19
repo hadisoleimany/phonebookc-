@@ -32,7 +32,7 @@ namespace phonebook
             _phone.userid = Login.iduser;
             db.phones.InsertOnSubmit(_phone);
             db.SubmitChanges();
-            grdContent.DataSource = db.phones.ToList();
+            grdContent.DataSource = db.phones.Where(c => c.userid == Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -49,7 +49,7 @@ namespace phonebook
             phone _phone = db.phones.SingleOrDefault(c => c.Id == id);
             db.phones.DeleteOnSubmit(_phone);
             db.SubmitChanges();
-            grdContent.DataSource = db.phones.ToList();
+            grdContent.DataSource = db.phones.Where(c => c.userid == Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -67,7 +67,7 @@ namespace phonebook
             _phone.phonenumber = txtphonenumber.Text;
 
             db.SubmitChanges();
-            grdContent.DataSource = db.phones.ToList();
+            grdContent.DataSource = db.phones.Where(c => c.userid == Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -90,11 +90,11 @@ namespace phonebook
             lingtophonebookDataContext db = new lingtophonebookDataContext();
             if (string.IsNullOrWhiteSpace(txtid.Text))
             { Page_Load(null, null); return; }
-            grdContent.DataSource = db.phones.Where(c =>
+            grdContent.DataSource = db.phones.Where(c =>(
             c.name.Contains(txtid.Text) ||
             c.family.Contains(txtid.Text) ||
             c.mobile.Contains(txtid.Text) ||
-            c.phonenumber.Contains(txtid.Text)).ToList();
+            c.phonenumber.Contains(txtid.Text))&& c.userid==Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -121,8 +121,8 @@ namespace phonebook
             lingtophonebookDataContext db = new lingtophonebookDataContext();
             phone _phone = db.phones.SingleOrDefault(c => c.Id.ToString() == grdContent.Rows[e.RowIndex].Cells[0].Text);
             db.phones.DeleteOnSubmit(_phone);
-            //  db.SubmitChanges();
-            grdContent.DataSource = db.phones.ToList();
+            db.SubmitChanges();
+            grdContent.DataSource = db.phones.Where(c=>c.userid==Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
