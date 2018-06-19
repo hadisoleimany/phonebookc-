@@ -17,7 +17,7 @@ namespace phonebook
         protected void Button1_Click(object sender, EventArgs e)
         {
             lingtophonebookDataContext db = new lingtophonebookDataContext();
-           var q= db.Users.SingleOrDefault(c => c.username == txtusername.Text && c.password == txtpassword.Text);
+            var q = db.Users.SingleOrDefault(c => c.username == txtusername.Text && c.password == txtpassword.Text);
 
             if (q == null)
                 return;
@@ -29,12 +29,32 @@ namespace phonebook
         public static string user = "";
         protected void btnsignup_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnsaveuser_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtusernamesave.Value) || string.IsNullOrWhiteSpace(txtpasswordsave.Value))
+                    return;
 
+                lingtophonebookDataContext db = new lingtophonebookDataContext();
+                User _user = new User();
+                _user.username = txtusernamesave.Value;
+                _user.password = txtpasswordsave.Value;
+                _user.email = txtemail.Value;
+                db.Users.InsertOnSubmit(_user);
+                db.SubmitChanges();
+
+                txtusernamesave.Value = txtpasswordsave.Value = txtemail.Value = "";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
