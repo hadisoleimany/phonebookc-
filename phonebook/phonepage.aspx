@@ -137,6 +137,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <label for="uname" style="direction: rtl;"><b>  کاربری</b></label> : 
+            <label id="lbluser" runat="server" style="direction: rtl;"><b></b></label> 
             <asp:TextBox ID="txtname" runat="server" placeholder="نام ... "></asp:TextBox>
             <br />
             <asp:TextBox ID="txtfamily" runat="server" placeholder="نام خانوادگی ... "></asp:TextBox>

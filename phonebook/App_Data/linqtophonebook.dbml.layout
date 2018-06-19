@@ -2,11 +2,24 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="lingtophonebook">
   <DataContextMoniker Name="/lingtophonebookDataContext" />
   <nestedChildShapes>
-    <classShape Id="89fbc367-c2eb-4918-8276-a00c8e3644ea" absoluteBounds="1.125, 1.375, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/lingtophonebookDataContext/tblphone" />
+    <classShape Id="5b195595-a0cb-42ec-b92b-9d260a6e6ae5" absoluteBounds="0.75, 1.125, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/lingtophonebookDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="5a27b60a-0b64-44f8-bd34-ef5f39416e04" absoluteBounds="1.1400000000000001, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cc3a549e-e1c9-48d3-baf7-611eb65708f0" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="4050e175-cfeb-4b04-86bc-535aec5f0d75" absoluteBounds="3.5, 0.875, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/lingtophonebookDataContext/phone" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f25757f0-b188-4d5c-bdc1-72d3b81e4c55" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/lingtophonebookDataContext/User/User_phone" />
+      <nodes>
+        <classShapeMoniker Id="5b195595-a0cb-42ec-b92b-9d260a6e6ae5" />
+        <classShapeMoniker Id="4050e175-cfeb-4b04-86bc-535aec5f0d75" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

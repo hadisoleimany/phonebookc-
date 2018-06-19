@@ -24,6 +24,18 @@
             direction: rtl;
         }
 
+        input[type=password], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 4px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            direction: rtl;
+        }
+
         input[type=submit] {
             width: 49%;
             background-color: #4CAF50;
@@ -105,43 +117,31 @@
             <br />
             <label for="psw" style="direction: rtl;"><b>کلمه عبور</b></label>
             <br />
-            <asp:TextBox ID="txtpassword" runat="server" placeholder="کلمه عبور را وارد کنید"></asp:TextBox>
-
-
+            <asp:TextBox ID="txtpassword" TextMode="Password" runat="server" placeholder="کلمه عبور را وارد کنید"></asp:TextBox>
 
             <asp:Button ID="btnlogin" runat="server" OnClick="Button1_Click" Text="ورود" />
-
-            <asp:Button CssClass="cancelbtn" ID="btnsignup" runat="server" OnClick="btnsignup_Click" Text="عضویت" />
-
+            <button type="button" onclick="document.getElementById('signid').style.display='none' , document.getElementById('divid').style.display='block'" class="cancelbtn">عضویت</button>
         </div>
 
-        <div class="container" runat="server" id="divid">
+        <div class="container" runat="server" id="divid" style="display: none;">
             <h1>عضویت</h1>
             <p>لطفا مشخصات خود را وارد کنید</p>
             <hr>
 
-
             <label for="username"><b>نام کاربری</b></label>
-            <input id="txtusernamesave" runat="server" type="text" placeholder="نام کاربری" name="UserName" >
-
-
+            <input id="txtusernamesave" runat="server" type="text" placeholder="نام کاربری" name="UserName" />
             <label for="psw"><b>کلمه عبور</b></label>
-            <input id="txtpasswordsave" runat="server" type="password" placeholder="کلمه عبور" name="psw" >
-
+            <input id="txtpasswordsave" runat="server" type="password" placeholder="کلمه عبور" name="psw" />
             <label for="psw-repeat"><b>تکرار کلمه عبور</b></label>
-            <input id="txtreppassword" runat="server" type="password" placeholder="تکرار کلمه عبور" name="psw-repeat" >
-
-
+            <input id="txtreppassword" runat="server" type="password" placeholder="تکرار کلمه عبور" name="psw-repeat" />
             <label for="email"><b>ایمیل</b></label>
-            <input id="txtemail" runat="server" type="text" placeholder="ایمیل" name="email">
-
-
+            <input id="txtemail" runat="server" type="text" placeholder="ایمیل" name="email" />
             <div class="clearfix">
+                <asp:Button runat="server" CssClass="button" Text="ذخیره" ID="btnsaveuser" OnClick="btnsaveuser_Click" />
+                <button type="button" onclick="document.getElementById('signid').style.display='block' , document.getElementById('divid').style.display='none'" class="cancelbtn">انصراف</button>
+
             </div>
         </div>
     </form>
-
-
-
 </body>
 </html>
