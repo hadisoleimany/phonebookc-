@@ -12,11 +12,15 @@ namespace phonebook
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Login.iduser == 0)
+
+            { Response.Redirect("Login.aspx"); }
+
             lbluser.InnerText = Login.user;
             lingtophonebookDataContext db = new lingtophonebookDataContext();
 
-            grdContent.DataSource = db.phones.Where(c=>c.userid==Login.iduser).ToList();
-            grdContent.DataBind();
+            grdContent.DataSource = db.phones.Where(c => c.userid == Login.iduser).ToList(); grdContent.DataBind();
 
 
         }
@@ -90,11 +94,11 @@ namespace phonebook
             lingtophonebookDataContext db = new lingtophonebookDataContext();
             if (string.IsNullOrWhiteSpace(txtid.Text))
             { Page_Load(null, null); return; }
-            grdContent.DataSource = db.phones.Where(c =>(
+            grdContent.DataSource = db.phones.Where(c => (
             c.name.Contains(txtid.Text) ||
             c.family.Contains(txtid.Text) ||
             c.mobile.Contains(txtid.Text) ||
-            c.phonenumber.Contains(txtid.Text))&& c.userid==Login.iduser).ToList();
+            c.phonenumber.Contains(txtid.Text)) && c.userid == Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -122,7 +126,7 @@ namespace phonebook
             phone _phone = db.phones.SingleOrDefault(c => c.Id.ToString() == grdContent.Rows[e.RowIndex].Cells[0].Text);
             db.phones.DeleteOnSubmit(_phone);
             db.SubmitChanges();
-            grdContent.DataSource = db.phones.Where(c=>c.userid==Login.iduser).ToList();
+            grdContent.DataSource = db.phones.Where(c => c.userid == Login.iduser).ToList();
             grdContent.DataBind();
             txtid.Text = null;
             txtname.Text = txtfamily.Text = txtmobile.Text = txtphonenumber.Text = "";
@@ -140,6 +144,13 @@ namespace phonebook
             {
                 int categoryID = Convert.ToInt32(e.CommandArgument);
             }
+        }
+
+        protected void btnlogout_Click(object sender, EventArgs e)
+        {
+            Login.iduser = 0;
+
+            Response.Redirect("Login.aspx");
         }
     }
 

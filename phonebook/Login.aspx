@@ -107,6 +107,23 @@
             font-family: Arial, Helvetica, sans-serif;
         }
     </style>
+    <script type="text/javascript">
+        function validate() {
+            document.getElementById("<%=txtusername.ClientID%>").style.borderColor = "#ccc";
+            document.getElementById("<%=txtpassword.ClientID%>").style.borderColor = "#ccc";
+
+            if (document.getElementById("<%=txtusername.ClientID%>").value == "") {
+                document.getElementById("<%=txtusername.ClientID%>").focus();
+                document.getElementById("<%=txtusername.ClientID%>").style.borderColor = "red";
+                return false;
+            }
+            if (document.getElementById("<%=txtpassword.ClientID%>").value == "") {
+                document.getElementById("<%=txtpassword.ClientID%>").focus();
+                document.getElementById("<%=txtpassword.ClientID%>").style.borderColor = "red";
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server" class="modal-content animate">
@@ -119,7 +136,7 @@
             <br />
             <asp:TextBox ID="txtpassword" TextMode="Password" runat="server" placeholder="کلمه عبور را وارد کنید"></asp:TextBox>
 
-            <asp:Button ID="btnlogin" runat="server" OnClick="Button1_Click" Text="ورود" />
+            <asp:Button ID="btnlogin" runat="server" OnClick="Button1_Click" OnClientClick=" return validate()" Text="ورود" />
             <button type="button" onclick="document.getElementById('signid').style.display='none' , document.getElementById('divid').style.display='block'" class="cancelbtn">عضویت</button>
         </div>
 

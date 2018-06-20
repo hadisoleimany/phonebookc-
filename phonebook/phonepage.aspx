@@ -132,13 +132,27 @@
             border-radius: 3px;
             padding: 5px;
         }
+             .cancelbtn {
+            border-radius: 4px;
+            color: white;
+            padding: 5px 10px !important;
+            margin: 4px 0;
+            border: none;
+            cursor: pointer;
+            background-color: #f44336 !important;
+            float:left;
+        }
+        
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <label for="uname" style="direction: rtl;"><b>  کاربری</b></label> : 
-            <label id="lbluser" runat="server" style="direction: rtl;"><b></b></label> 
+            <label id="lbluser" runat="server" style="direction: rtl;"><b> 
+            </b></label> 
+            <asp:Button ID="btnlogout" runat="server" Width="10%" CssClass="cancelbtn"  OnClick="btnlogout_Click" Text="خروج" />
+                
             <asp:TextBox ID="txtname" runat="server" placeholder="نام ... "></asp:TextBox>
             <br />
             <asp:TextBox ID="txtfamily" runat="server" placeholder="نام خانوادگی ... "></asp:TextBox>
@@ -152,7 +166,7 @@
             <br />
             <asp:TextBox ID="txtid" runat="server" placeholder="جستجو" OnTextChanged="txtsearch0_TextChanged"></asp:TextBox>
             <asp:Button ID="btnsearchid" runat="server" Width="100%" OnClick="btnsearchid_Click" Text="جستجو" />
-        </div>
+            </div>
         <asp:GridView ID="grdContent" runat="server" CssClass="mygrdContent" PagerStyle-CssClass="pager"
             HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
             AllowPaging="True" OnSelectedIndexChanged="grdContent_SelectedIndexChanged" AutoGenerateColumns="false"
